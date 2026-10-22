@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATs - Delete Account</title>
+<style>
+  :root {
+    --brand: #1a4d8f;
+    --brand-dark: #0f2f57;
+    --text: #222831;
+    --muted: #5a6472;
+    --bg: #ffffff;
+    --panel: #f7f9fc;
+    --border: #e3e8ef;
+    --danger: #b42318;
+    --danger-soft: #fdecea;
+    --warning-ink: #5c3200;
+    --warning-soft: #fff4e5;
+    --warning-border: #f3c98b;
+    --success-ink: #0f6e56;
+    --success-soft: #e5f8ed;
+    --max-width: 820px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+  }
+  header {
+    background: var(--brand);
+    color: #ffffff;
+    padding: 28px 20px;
+  }
+  header .header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  header .brand {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  h1 {
+    font-size: 26px;
+    margin: 0 0 8px;
+    color: var(--brand-dark);
+  }
+  h2 {
+    font-size: 19px;
+    margin: 36px 0 10px;
+    color: var(--brand-dark);
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  ol, ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .warning {
+    background: var(--warning-soft);
+    border: 1px solid var(--warning-border);
+    color: var(--warning-ink);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 16px 0;
+  }
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .phone-row {
+    display: flex;
+    gap: 8px;
+  }
+  .prefix {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--muted);
+  }
+  input[type="tel"], input[type="text"] {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    padding: 0 14px;
+    font-size: 16px;
+    border: 1px solid #b8c2cf;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--text);
+  }
+  input:focus, button:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+  }
+  .check {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-weight: 400;
+    margin: 16px 0;
+  }
+  .check input { margin-top: 5px; width: 18px; height: 18px; flex: 0 0 auto; }
+  .hint {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 6px 0 0;
+  }
+  button {
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+  }
+  button:disabled { cursor: not-allowed; opacity: 0.55; }
+  .btn-primary { background: var(--brand); color: #ffffff; }
+  .btn-danger { background: var(--danger); color: #ffffff; }
+  .btn-link {
+    background: transparent;
+    color: var(--brand);
+    padding: 8px 0;
+    min-height: 44px;
+    text-decoration: underline;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 16px;
+  }
+  .message {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+  .message.error { background: var(--danger-soft); color: #7a1a12; }
+  .message.success { background: var(--success-soft); color: var(--success-ink); }
+  .message.info { background: var(--panel); color: var(--text); }
+  [hidden] { display: none !important; }
+  a.inline { color: var(--brand); }
+  footer {
+    text-align: center;
+    padding: 24px 20px 40px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="brand">eWc MATs</a>
+  </div>
+</header>
+
+<main>
+  <h1>Delete your eWc MATs account</h1>
+  <p class="subtitle">
+    eWc MATs is provided by Ekakar Wellbeing Creation Private Limited.
+    You can delete your account in the app, or on this page if you no longer
+    have the app.
+  </p>
+
+  <h2>Option 1: In the app</h2>
+  <ol>
+    <li>Open the eWc MATs app and sign in.</li>
+    <li>Go to <strong>Profile</strong> and tap <strong>Account &amp; privacy</strong>.</li>
+    <li>Review the details and tap <strong>Send OTP to continue</strong>.</li>
+    <li>Enter the code sent to your registered mobile number and tap <strong>Delete my account</strong>.</li>
+  </ol>
+
+  <h2>Option 2: On this page</h2>
+  <div class="panel">
+    <!-- Step 1: mobile number -->
+    <form id="step-mobile" novalidate>
+      <label for="mobile">Registered mobile number</label>
+      <div class="phone-row">
+        <span class="prefix" aria-hidden="true">+91</span>
+        <input id="mobile" name="mobile" type="tel" inputmode="numeric"
+               autocomplete="tel-national" maxlength="14"
+               placeholder="10-digit mobile number" aria-describedby="mobile-hint">
+      </div>
+      <p id="mobile-hint" class="hint">We'll send a 6-digit code by SMS to confirm it's you.</p>
+      <div class="actions">
+        <button type="submit" id="send-code" class="btn-primary">Send code</button>
+      </div>
+    </form>
+
+    <!-- Step 2: code + confirmation -->
+    <form id="step-code" novalidate hidden>
+      <p>We sent a 6-digit code to <strong id="masked-mobile"></strong>.</p>
+      <label for="otp">Code</label>
+      <div class="phone-row">
+        <input id="otp" name="otp" type="text" inputmode="numeric"
+               autocomplete="one-time-code" maxlength="6" placeholder="6-digit code">
+      </div>
+      <div class="warning" role="note">
+        <strong>This cannot be undone.</strong>
+        Your account and your children's details will be deleted as described
+        below. Any active membership ends immediately and the remaining days are
+        not refunded.
+      </div>
+      <label class="check" for="understand">
+        <input type="checkbox" id="understand">
+        <span>I understand and want to permanently delete my account.</span>
+      </label>
+      <div class="actions">
+        <button type="submit" id="delete" class="btn-danger" disabled>Delete my account</button>
+        <button type="button" id="resend" class="btn-link" disabled>Resend code</button>
+        <button type="button" id="change-number" class="btn-link">Use a different number</button>
+      </div>
+    </form>
+
+    <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+  </div>
+
+  <h2>What is deleted</h2>
+  <ul>
+    <li>Your name, mobile number, email address and address.</li>
+    <li>Your children's names, gender and APAAR ID.</li>
+    <li>Your children's medical information.</li>
+    <li>You are signed out of the app on every device.</li>
+  </ul>
+
+  <h2>What is kept, and why</h2>
+  <p>Some records are kept after your account is deleted:</p>
+  <ul>
+    <li>
+      <strong>Payment and invoice records</strong>, including the name shown on
+      invoices, to meet tax, accounting and other legal requirements.
+    </li>
+    <li>
+      <strong>Training records</strong> of your children, such as date of
+      birth, attendance, belt and grading history, and certificates, so that
+      our academies' records stay complete. After deletion, these records are
+      no longer shown under your child's name in the app.
+    </li>
+    <li>
+      <strong>Messages</strong> exchanged with trainers, and
+      <strong>free-assessment bookings</strong> (including the name and
+      WhatsApp number given when booking), for record-keeping.
+    </li>
+  </ul>
+  <p>
+    We keep these records only for a limited period, for as long as needed for
+    these legal, compliance and record-keeping purposes, and then delete or
+    anonymise them. You can ask us to remove messages or free-assessment
+    booking details sooner by emailing
+    <a class="inline" href="mailto:connect@ewcgroup.in?subject=MATs%20data%20removal">connect@ewcgroup.in</a>.
+  </p>
+
+  <h2>Memberships</h2>
+  <p>
+    If you have an active membership, it ends when your account is deleted.
+    The remaining days are not refunded.
+  </p>
+
+  <h2>Need help?</h2>
+  <p>
+    If you can't receive the code or have a question, email
+    <a class="inline" href="mailto:connect@ewcgroup.in?subject=MATs%20account%20deletion">connect@ewcgroup.in</a>
+    from your registered email address.
+  </p>
+</main>
+
+<footer>
+  Last updated: October 2026<br>
+  <a href="privacy-policy.html">Privacy Policy</a> ·
+  <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  // Backend address. DEV server for testing — change to the production
+  // backend (https://...) before this page is published.
+  var API_BASE = 'https://dev.matsserver.ewcgroup.in';
+  var RESEND_SECONDS = 45;
+
+  var stepMobile = document.getElementById('step-mobile');
+  var stepCode = document.getElementById('step-code');
+  var mobileInput = document.getElementById('mobile');
+  var otpInput = document.getElementById('otp');
+  var understand = document.getElementById('understand');
+  var sendBtn = document.getElementById('send-code');
+  var deleteBtn = document.getElementById('delete');
+  var resendBtn = document.getElementById('resend');
+  var changeBtn = document.getElementById('change-number');
+  var maskedMobile = document.getElementById('masked-mobile');
+  var message = document.getElementById('message');
+
+  var mobile = '';
+  var busy = false;
+  var timer = null;
+
+  function show(text, kind) {
+    message.textContent = text;
+    message.className = 'message ' + kind;
+    message.hidden = false;
+  }
+
+  function clearMessage() {
+    message.hidden = true;
+    message.textContent = '';
+  }
+
+  // "+91 98765 43210", "098765 43210" -> "9876543210"; anything else -> ''.
+  function cleanMobile(value) {
+    var digits = String(value || '').replace(/\D/g, '');
+    if (digits.length === 12 && digits.indexOf('91') === 0) digits = digits.slice(2);
+    if (digits.length === 11 && digits.charAt(0) === '0') digits = digits.slice(1);
+    return /^[6-9]\d{9}$/.test(digits) ? digits : '';
+  }
+
+  function mask(m) {
+    return '+91 ••••• •' + m.slice(-4);
+  }
+
+  // Backend errors arrive as {"detail": "text"} or
+  // {"detail": {"code": "...", "message": "..."}} or {"message": "..."}.
+  function readMessage(body) {
+    if (!body) return '';
+    if (typeof body.message === 'string') return body.message;
+    if (typeof body.detail === 'string') return body.detail;
+    if (body.detail && typeof body.detail.message === 'string') return body.detail.message;
+    return '';
+  }
+
+  function post(path, payload) {
+    return fetch(API_BASE + path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (response) {
+      return response.json().catch(function () { return null; }).then(function (body) {
+        return { status: response.status, ok: response.ok, body: body };
+      });
+    });
+  }
+
+  function startResendTimer() {
+    var left = RESEND_SECONDS;
+    resendBtn.disabled = true;
+    resendBtn.textContent = 'Resend code in ' + left + 's';
+    clearInterval(timer);
+    timer = setInterval(function () {
+      left -= 1;
+      if (left <= 0) {
+        clearInterval(timer);
+        resendBtn.disabled = false;
+        resendBtn.textContent = 'Resend code';
+      } else {
+        resendBtn.textContent = 'Resend code in ' + left + 's';
+      }
+    }, 1000);
+  }
+
+  function updateDeleteButton() {
+    deleteBtn.disabled = busy || !understand.checked ||
+      !/^\d{6}$/.test(otpInput.value.trim());
+  }
+
+  function sendCode(isResend) {
+    if (busy) return;
+    busy = true;
+    sendBtn.disabled = true;
+    resendBtn.disabled = true;
+    clearMessage();
+    show(isResend ? 'Sending a new code…' : 'Sending code…', 'info');
+
+    post('/api/v1/auth/login', { mobile: mobile, app: 'student' })
+      .then(function (res) {
+        if (res.ok) {
+          clearMessage();
+          stepMobile.hidden = true;
+          stepCode.hidden = false;
+          maskedMobile.textContent = mask(mobile);
+          otpInput.value = '';
+          startResendTimer();
+          otpInput.focus();
+          if (isResend) show('A new code was sent.', 'info');
+          return;
+        }
+        var text = readMessage(res.body);
+        if (res.status === 403) {
+          show(text || 'No account found for this number.', 'error');
+        } else if (res.status === 400) {
+          show(text || 'Please enter a valid 10-digit mobile number.', 'error');
+        } else {
+          show("We couldn't send the code right now. Please try again later.", 'error');
+        }
+        if (isResend) resendBtn.disabled = false;
+      })
+      .catch(function () {
+        show("We couldn't reach the server. Check your internet connection and try again.", 'error');
+        if (isResend) resendBtn.disabled = false;
+      })
+      .then(function () {
+        busy = false;
+        sendBtn.disabled = false;
+        updateDeleteButton();
+      });
+  }
+
+  stepMobile.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var cleaned = cleanMobile(mobileInput.value);
+    if (!cleaned) {
+      show('Please enter a valid 10-digit mobile number.', 'error');
+      mobileInput.focus();
+      return;
+    }
+    mobile = cleaned;
+    sendCode(false);
+  });
+
+  resendBtn.addEventListener('click', function () { sendCode(true); });
+
+  changeBtn.addEventListener('click', function () {
+    clearInterval(timer);
+    clearMessage();
+    understand.checked = false;
+    otpInput.value = '';
+    stepCode.hidden = true;
+    stepMobile.hidden = false;
+    mobileInput.focus();
+    updateDeleteButton();
+  });
+
+  otpInput.addEventListener('input', function () {
+    otpInput.value = otpInput.value.replace(/\D/g, '').slice(0, 6);
+    updateDeleteButton();
+  });
+  understand.addEventListener('change', updateDeleteButton);
+
+  stepCode.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (deleteBtn.disabled || busy) return;
+    busy = true;
+    updateDeleteButton();
+    show('Deleting your account…', 'info');
+
+    post('/api/v1/account/delete-with-otp', { mobile: mobile, otp: otpInput.value.trim() })
+      .then(function (res) {
+        if (res.ok) {
+          clearInterval(timer);
+          stepCode.hidden = true;
+          show('Your account has been deleted. You have been signed out of the app on all devices.', 'success');
+          return;
+        }
+        var text = readMessage(res.body);
+        if (res.status === 400) {
+          show(text || 'Wrong or expired code. Please request a new code.', 'error');
+        } else if (res.status === 403) {
+          show("This account can't be deleted here. Please contact connect@ewcgroup.in.", 'error');
+        } else if (res.status === 404) {
+          show(text && text.toLowerCase() !== 'not found'
+            ? 'Account not found or already deleted.'
+            : "Account deletion isn't available right now. Please try again later.", 'error');
+        } else {
+          show("We couldn't check the code right now. Please try again later.", 'error');
+        }
+      })
+      .catch(function () {
+        show("We couldn't reach the server. Nothing was deleted. Please try again.", 'error');
+      })
+      .then(function () {
+        busy = false;
+        updateDeleteButton();
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
